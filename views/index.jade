@@ -3,4 +3,11 @@ extends layout
 block content
   h1= title
   h3 Here are all class times in RCH 302:
-  p= times
+  table
+    tr
+      th(scope="col") Time
+      th(scope="col") Availability
+    each val in times
+      tr
+        td= val[0]
+        td= val[2]

@@ -1,7 +1,7 @@
 function findEmptyTime(buildings) {
 	var days = [ [], [], [], [], [], [], [], [] ];
 
-	var d = new Date();
+	var d = new Date("March 7, 2014");
 	//gets current date as integer in the form MMDD
 	var currDate = ((d.getMonth() + 1) * 100) + d.getDate();
 
@@ -53,7 +53,35 @@ function findEmptyTime(buildings) {
 	for(var i in days[d.getDay()]) {
 		today.push(days[d.getDay()][i]);
 	}
-	return today;
+	var allTimes = [];
+	//times currently go from 8:00 to 22:00 though that might change
+	for(var i = 0; i < 15; i ++) {
+		allTimes.push([(8 + i) + ":" + "00", (8 + i) * 100 + 30]);
+		allTimes.push([(8 + i) + ":" + "30", (8 + i) * 100 + 30]);
+	}
+	allTimes.pop();
+	//assign default bool status to each time slot
+	for(var i in allTimes) {
+		allTimes[i].push(true);
+	}
+	for(var i in today) {
+		var startDiff = today[i][0] - 800;
+		//number of full hours elapsed since 8:00 * 2
+		var startInd = 2 * Math.floor(startDiff / 100);
+		//if at the half hour, add 1 to index
+		if(startDiff % 100 == 30) {
+			startInd ++;
+		}
+		var endDiff = today[i][1] - 800;
+		var endInd = 2 * Math.floor(endDiff / 100);
+		if(endDiff % 100 == 30) {
+			endInd ++;
+		}
+		for(var j = startInd; j < endInd; j ++) {
+			allTimes[j][2] = false;
+		}
+	}
+	return allTimes;
 }
 
 function makeInt(item, delimiter) {
