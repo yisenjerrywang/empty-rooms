@@ -1,8 +1,36 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	padding: 50px;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+	font: 300 56px "Raleway", Helvetica, Arial, sans-serif;
+}
+
+h3 {
+	font: 400 22px "Merriweather", "Times New Roman", serif;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+th,
+td {
+	font: 400 14px "Merriweather", "Times New Roman", serif;
+	border: 1px solid #cecfd5;
+	padding: 10px 15px;
+}
+
+
+.not-avail {
+	background: #e74c3c;
+}
+
+.avail {
+	background: #2ecc71;
 }
 
 a {
-  color: #00B7FF;
+	color: #00B7FF;
 }

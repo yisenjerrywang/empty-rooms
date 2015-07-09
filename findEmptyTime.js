@@ -54,11 +54,21 @@ function findEmptyTime(buildings) {
 		today.push(days[d.getDay()][i]);
 	}
 	var allTimes = [];
+
+	//allTimes[i][0]: string representation of time, 0 <= i <= 15
+	//allTimes[i][1]: integer representation of time, 0 <= i <= 15
+	//allTimes[i][2]: string representation of time, 30 minutes ahead, , 0 <= i <= 15
+	//allTimes[i][3]: boolean availability, 0 <= i <= 15
 	//times currently go from 8:00 to 22:00 though that might change
 	for(var i = 0; i < 15; i ++) {
 		allTimes.push([(8 + i) + ":" + "00", (8 + i) * 100 + 30]);
 		allTimes.push([(8 + i) + ":" + "30", (8 + i) * 100 + 30]);
 	}
+	for(var i = 0; i < 29; i ++) {
+		allTimes[i].push(allTimes[i + 1][0]);
+	}
+	//removes 22:00-23:00
+	allTimes.pop();
 	allTimes.pop();
 	//assign default bool status to each time slot
 	for(var i in allTimes) {
@@ -78,7 +88,7 @@ function findEmptyTime(buildings) {
 			endInd ++;
 		}
 		for(var j = startInd; j < endInd; j ++) {
-			allTimes[j][2] = false;
+			allTimes[j][3] = false;
 		}
 	}
 	return allTimes;

@@ -4,10 +4,12 @@ block content
   h1= title
   h3 Here are all class times in RCH 302:
   table
-    tr
-      th(scope="col") Time
-      th(scope="col") Availability
-    each val in times
+    thead
       tr
-        td= val[0]
-        td= val[2]
+        th(scope="col") Time
+        th(scope="col") Availability
+    tbody
+      each val in times
+        tr
+          td= val[0] + "-" + val[2]
+          td(class=val[3] ? "avail" : "not-avail")= val[3] ? "Available" : "Not Available"
