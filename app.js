@@ -6,8 +6,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var home = require('./routes/index');
+var times = require('./routes/times');
 
 var app = express();
 
@@ -25,9 +25,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // make all the uwapi stuff accessible to router
 
-
-app.use('/', routes);
-app.use('/users', users);
+app.use('/', home);
+app.use('/times', times);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,4 +1,4 @@
-function findEmptyTime(buildings) {
+function findEmptyTime(buildings, callback) {
 	var days = [ [], [], [], [], [], [], [], [] ];
 
 	var d = new Date("March 7, 2014");
@@ -91,7 +91,7 @@ function findEmptyTime(buildings) {
 			allTimes[j][3] = false;
 		}
 	}
-	return allTimes;
+	callback(allTimes);
 }
 
 function makeInt(item, delimiter) {

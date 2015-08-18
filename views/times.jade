@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h3 Here are all class times in RCH 302:
+  table
+    thead
+      tr
+        th(scope="col") Time
+        th(scope="col") Availability
+    tbody
+      each time in times
+        tr
+          td= time[0] + "-" + time[2]
+          td(class=time[3] ? "avail" : "not-avail")= time[3] ? "Available" : "Not Available"
