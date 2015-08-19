@@ -1,5 +1,5 @@
 doctype html
-html
+html(ng-app="empty-rooms")
   head
     title= title
     // Bootstrap
@@ -12,5 +12,9 @@ html
     // Fonts
     link(href='http://fonts.googleapis.com/css?family=Raleway:300', rel='stylesheet', type='text/css')
     link(href='http://fonts.googleapis.com/css?family=Merriweather', rel='stylesheet', type='text/css')
+
+    //Angular
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js')
+    script(src='/js/angularApp.js')
   body
     block content

@@ -3,7 +3,9 @@ extends layout
 block content
   h1= title
   h3 Please select a room:
-  select
-    each building in buildings
-      option(value=building['building_code']) #{building['building_code']} - #{building['building_name']}
-  button(type="button") Hey!!
+  div(ng-controller="QuickView as quick")
+    select(ng-model="quick.curBuilding")
+      each building in buildings
+        option(value=building['building_code']) #{building['building_code']} - #{building['building_name']}
+    button(type="button") Hey!!
+    p {{quick.curBuilding}}
