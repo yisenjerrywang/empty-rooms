@@ -7,5 +7,6 @@ block content
     select(ng-model="quick.curBuilding")
       each building in buildings
         option(value=building['building_code']) #{building['building_code']} - #{building['building_name']}
-    button(type="button") Hey!!
-    p {{quick.curBuilding}}
+    input(ng-model="quick.curRoomNum" type="text" name="roomNum")
+    button(ng-click="quick.getTimes()" type="button") Hey!!
+    p {{quick.curBuilding}} {{quick.curRoomNum}}
